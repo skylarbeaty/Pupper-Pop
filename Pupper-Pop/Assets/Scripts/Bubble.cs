@@ -1,30 +1,30 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Bubble : MonoBehaviour
 {
-    float grav = 0.004f, drag = 0.1f;
+    float grav = 0.004f, drag = 0.2f;
     float vspeed = 0f, minVSpeed = -1f, jumpVSpeed = 2f;
-    float hspeed = 0f, maxHSpeed = 0.6f, hspeedFactor = 15f; 
+    float hspeed = 0f, maxHSpeed = 0.6f, hspeedFactor = 0.8f; 
+    float hMoveInput = 0f;
 
     void Update()
     {
-        // Jumping Input
-        if (Input.GetButtonDown("Jump")){
-            vspeed = jumpVSpeed;
-        }
+        // Jumping gravity
         if (vspeed >= minVSpeed){
             vspeed -= grav;
             if (vspeed < minVSpeed)
                 vspeed = minVSpeed;
         }
-        // left/right input
+        // left/right drag
         if (Mathf.Abs(hspeed) > 0f){
             hspeed -= drag * System.Math.Sign(hspeed) * Time.deltaTime;
             if (Mathf.Abs(hspeed) < drag * Time.deltaTime)
                 hspeed = 0f;
         }
-        if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0f){
-            hspeed += Input.GetAxisRaw("Horizontal") * hspeedFactor * Time.deltaTime;
+        // left/right apply movement input
+        if (Mathf.Abs(hMoveInput) > 0f){
+            hspeed += hMoveInput * hspeedFactor * Time.deltaTime;
         }
         if (Mathf.Abs(hspeed) > maxHSpeed){
             hspeed = maxHSpeed * System.Math.Sign(hspeed);
@@ -34,5 +34,14 @@ public class Bubble : MonoBehaviour
         pos.y += vspeed * Time.deltaTime;
         pos.x += hspeed * Time.deltaTime;
         transform.position = pos;
+    }
+
+    // Player Input Messages
+    public void OnJump(){
+        vspeed = jumpVSpeed;
+    }
+
+    public void OnMove(InputValue value){
+        hMoveInput = value.Get<Vector2>().x;
     }
 }
