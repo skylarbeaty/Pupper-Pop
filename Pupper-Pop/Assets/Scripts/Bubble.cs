@@ -3,8 +3,8 @@ using UnityEngine.InputSystem;
 
 public class Bubble : MonoBehaviour
 {
-    float grav = 0.004f, drag = 0.2f;
-    float vspeed = 0f, minVSpeed = -1f, jumpVSpeed = 2f;
+    float grav = 0.0008f, drag = 0.2f;
+    float vspeed = 0f, minVSpeed = -0.7f, jumpVSpeed = 0.9f;
     float hspeed = 0f, maxHSpeed = 0.6f, hspeedFactor = 0.8f; 
     float hMoveInput = 0f;
 
@@ -43,5 +43,9 @@ public class Bubble : MonoBehaviour
 
     public void OnMove(InputValue value){
         hMoveInput = value.Get<Vector2>().x;
+    }
+
+    public void OnPop(){
+        Destroy(gameObject);
     }
 }
