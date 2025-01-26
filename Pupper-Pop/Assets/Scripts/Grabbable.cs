@@ -4,25 +4,25 @@ public class Grabbable : MonoBehaviour
 {
     Rigidbody2D rb;
     GameObject target;
-    public float smoothTime = 3F;
-    private Vector3 velocity = Vector2.zero;
-    public Collider2D collider;
+    private Collider2D coll;
     void Awake(){
         rb = GetComponent<Rigidbody2D>();
+        coll = GetComponent<Collider2D>();
     }
     void FixedUpdate(){
         if (target){
-            // print("following");
-            transform.position = Vector3.SmoothDamp(transform.position, target.transform.position, ref velocity, smoothTime);
-        }else {
-            // collider.enable = true;
+            rb.MovePosition(Vector3.Lerp(transform.position, target.transform.position, 0.17f));
+        }else{
+            coll.enabled = true;
+            rb.bodyType = RigidbodyType2D.Dynamic;
         }
     }
 
     void OnCollisionEnter2D(Collision2D other){
         if (other.gameObject.CompareTag("Bubble")){
             target = other.gameObject;
-            // collider.enable = false;
+            coll.enabled = false;
+            rb.bodyType = RigidbodyType2D.Kinematic;
         }
     }
 }
