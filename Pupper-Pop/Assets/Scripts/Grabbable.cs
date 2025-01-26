@@ -4,6 +4,7 @@ public class Grabbable : MonoBehaviour
 {
     Rigidbody2D rb;
     GameObject target;
+    public bool isMainTreat = false;
     private Collider2D coll;
     void Awake(){
         rb = GetComponent<Rigidbody2D>();
@@ -23,6 +24,14 @@ public class Grabbable : MonoBehaviour
             target = other.gameObject;
             coll.enabled = false;
             rb.bodyType = RigidbodyType2D.Kinematic;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.CompareTag("Toxic")){
+            if (isMainTreat)
+                Object.FindAnyObjectByType<GameCanvas>().OnFail();
+            Destroy(gameObject);
         }
     }
 }

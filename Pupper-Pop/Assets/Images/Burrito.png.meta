@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 8818447ab45554a469ebfbe49904867b
+guid: f4f13aa7a2f9368418dae540d043f2bc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 47579075938447084
-    second: Bork_0002_0
+      213: 9192687251970799782
+    second: Burrito_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bork_0002_0
+      name: Burrito_0
       rect:
         serializedVersion: 2
-        x: 499
-        y: 15
-        width: 739
-        height: 841
+        x: 0
+        y: 1
+        width: 1032
+        height: 696
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cee6d00eae809a000800000000000000
-      internalID: 47579075938447084
+      spriteID: 6a83bf8c95cf29f70800000000000000
+      internalID: 9192687251970799782
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Bork_0002_0: 47579075938447084
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
