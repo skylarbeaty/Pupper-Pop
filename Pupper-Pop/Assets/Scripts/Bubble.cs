@@ -47,11 +47,8 @@ public class Bubble : MonoBehaviour
     public void OnPop(){
         Destroy(gameObject);
     }
-
-<<<<<<< HEAD
+    
     // Collision
-=======
->>>>>>> origin/main
     void OnCollisionEnter2D(Collision2D other){
         if (other.gameObject.CompareTag("Pops")){
             OnPop();
