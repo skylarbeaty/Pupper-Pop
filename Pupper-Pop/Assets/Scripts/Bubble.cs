@@ -8,8 +8,7 @@ public class Bubble : MonoBehaviour
     float hspeed = 0f, maxHSpeed = 0.6f, hspeedFactor = 0.8f; 
     float hMoveInput = 0f;
 
-    void FixedUpdate()
-    {
+    void FixedUpdate(){
         // Jumping gravity
         if (vspeed >= minVSpeed){
             vspeed -= grav;
@@ -47,5 +46,21 @@ public class Bubble : MonoBehaviour
 
     public void OnPop(){
         Destroy(gameObject);
+    }
+
+<<<<<<< HEAD
+    // Collision
+=======
+>>>>>>> origin/main
+    void OnCollisionEnter2D(Collision2D other){
+        if (other.gameObject.CompareTag("Pops")){
+            OnPop();
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other){
+        if (other.gameObject.CompareTag("Pops")){
+            OnPop();
+        }
     }
 }
