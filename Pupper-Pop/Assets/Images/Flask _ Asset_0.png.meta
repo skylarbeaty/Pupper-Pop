@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Flask _ Asset_0_0: 3453492971391585456
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Blueberries_Assset_0: -714208115548850047
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
